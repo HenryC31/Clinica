@@ -1,0 +1,83 @@
+
+/* Contenedor principal */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+/* LOGO */
+.logo-section {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo-section img {
+    width: 250px;
+    margin-bottom: 10px;
+}
+
+.logo-section h1 {
+    font-size: 28px;
+    color: #2b2b2b;
+}
+
+.logo-section span {
+    font-size: 14px;
+    color: #888;
+    letter-spacing: 2px;
+}
+
+/* OPCIONES */
+.options {
+    display: grid;
+    grid-template-columns: repeat(2, 200px);
+    gap: 50px;
+    margin-bottom: 50px;
+}
+
+/* TARJETAS */
+.card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.card img {
+    width: 40px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 14px;
+    color: #444;
+}
+
+/* Hover bonito */
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* BOTÓN */
+.cta button {
+    background-color: #2da6b1;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Hover botón */
+.cta button:hover {
+    background-color: #248d96;
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mi Perfil - Clínica Gury</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../assets/icon.png">
+    <!-- Estilos -->
+    <link rel="stylesheet" href="../styles/global.css">
+    <link rel="stylesheet" href="../styles/perfil.css">
+</head>
+<body>
+    <!-- El Header se carga aquí automáticamente -->
+    <div id="header-placeholder"></div>
+
+    <main>
+        <div class="perfil-container">
+            <h2>Mi Perfil</h2>
+            <form id="form-perfil">
+                <div class="form-group">
+                    <label>Edad</label>
+                    <input type="number" id="perf-edad" placeholder="Tu edad">
+                </div>
+                
+                <div class="form-group">
+                    <label>Teléfono Celular</label>
+                    <input type="tel" id="perf-tel" placeholder="10 dígitos" inputmode="numeric">
+                </div>
+
+                <div class="form-group">
+                <label>Correo Electrónico (Opcional)</label>
+                <input type="email" id="perf-email" placeholder="tu@correo.com">
+                </div>
+
+                <div class="form-group">
+                    <label>URL Foto de Perfil</label>
+                    <input type="text" id="perf-foto" placeholder="https://ejemplo.com/mi-foto.jpg">
+                    <small style="color: #666;">Pega el enlace de una imagen de internet.</small>
+                </div>
+
+                <div class="form-group">
+                    <label>Enfermedades o Alergias</label>
+                    <textarea id="perf-enfermedades" placeholder="Describe brevemente tus padecimientos..."></textarea>
+                </div>
+
+                <button type="button" class="btn-guardar" onclick="guardarPerfil()">Guardar Cambios</button>
+            </form>
+        </div>
+    </main>
+
+    <!-- Scripts necesarios -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../js/main.js"></script>
+
+    <script>
+        // Al cargar la página, verificamos sesión y cargamos los datos
+        document.addEventListener('DOMContentLoaded', async () => {
+            const { data: { session } } = await db.auth.getSession();
+            if (!session) {
+                window.location.href = "login.html";
+                return;
+            }
+            // Llamamos a la función de main.js para llenar los inputs
+            if (typeof cargarDatosPerfil === 'function') {
+                cargarDatosPerfil();
+            }
+        });
+    </script>
+</body>
+</html>
