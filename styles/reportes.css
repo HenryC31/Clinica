@@ -1,0 +1,25 @@
+.charts-section {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.chart-container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.chart-container h2 {
+    margin-top: 0;
+    color: #333;
+    font-size: 18px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+}

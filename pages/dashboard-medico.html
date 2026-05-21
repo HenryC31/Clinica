@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gury Clínica - Panel Médico</title>
+  <link rel="stylesheet" href="../styles/dashboard-medico.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" type="image/png" href="../assets/icon.png">
+</head>
+<body class="dashboard">
+
+  <aside class="sidebar" id="sidebar-placeholder"></aside>
+
+  <main class="main-content">
+    <header class="main-header">
+      <div class="main-header__welcome">
+        <h1>Bienvenido, Dr. <span id="nombreMedico">Cargando...</span></h1>
+        <p>Este es el estado de tus consultas para el día de hoy.</p>
+      </div>
+    </header>
+
+    <section class="metrics">
+      <div class="metrics__card">
+        <div class="metrics__icon"><i class="fa-solid fa-hospital-user"></i></div>
+        <div class="metrics__info">
+          <h3 id="totalCitas">0</h3>
+          <p>Total Citas</p>
+        </div>
+      </div>
+      <div class="metrics__card metrics__card--atendidas">
+        <div class="metrics__icon"><i class="fa-solid fa-circle-check"></i></div>
+        <div class="metrics__info">
+          <h3 id="citasAtendidas">0</h3>
+          <p>Atendidas</p>
+        </div>
+      </div>
+      <div class="metrics__card metrics__card--pendientes">
+        <div class="metrics__icon"><i class="fa-solid fa-clock"></i></div>
+        <div class="metrics__info">
+          <h3 id="citasPendientes">0</h3>
+          <p>Pendientes</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="agenda-section">
+      <div class="agenda-section__header">
+        <h2>Pacientes Agendados</h2>
+      </div>
+      
+      <div class="table-container">
+        <table class="pacientes-table">
+          <thead>
+            <tr>
+              <th>Fecha y Hora</th>
+              <th>Paciente</th>
+              <th>Servicio</th>
+              <th>Estado</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="tablaCitasBody">
+            <tr>
+              <td colspan="5" class="table-empty">Cargando agenda médica...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../js/supabase-config.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/dashboard-medico.js"></script>
+</body>
+</html>
+</body>
+</html>

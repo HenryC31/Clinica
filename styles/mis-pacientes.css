@@ -1,0 +1,117 @@
+
+body.dashboard {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background-color: #f9f9f9;
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar { width: 260px; background-color: #ffffff; border-right: 1px solid #eee; display: flex; flex-direction: column; box-shadow: 2px 0 15px rgba(0,0,0,0.02); z-index: 10; }
+.sidebar__logo { padding: 25px 20px; text-align: center; border-bottom: 1px solid #eee; }
+.sidebar__logo h2 { margin: 0; font-size: 24px; color: #333; }
+.sidebar__logo span { color: #3bb3b6; }
+.sidebar__nav { display: flex; flex-direction: column; padding-top: 20px; flex: 1; }
+.sidebar__link { color: #555; text-decoration: none; padding: 16px 25px; font-size: 15px; transition: all 0.3s ease; display: flex; align-items: center; font-weight: 500; }
+.sidebar__link i { width: 25px; font-size: 18px; margin-right: 10px; color: #888; }
+.sidebar__link:hover, .sidebar__link--active { background-color: #f0fbfb; color: #3bb3b6; border-left: 5px solid #3bb3b6; }
+.sidebar__link:hover i, .sidebar__link--active i { color: #3bb3b6; }
+.sidebar__btn-logout { background: none; border: none; border-top: 1px solid #eee; color: #e74c3c; padding: 20px 25px; text-align: left; font-size: 15px; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; font-weight: 500; }
+.sidebar__btn-logout i { width: 25px; font-size: 18px; margin-right: 10px; }
+.sidebar__btn-logout:hover { background-color: #fff5f5; }
+
+/* --- CONTENIDO PRINCIPAL --- */
+.main-content {
+  flex: 1;
+  padding: 40px;
+  overflow-y: auto;
+}
+
+.main-header {
+  margin-bottom: 40px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 20px;
+}
+
+.main-header__welcome h1 { margin: 0 0 8px 0; color: #333; font-size: 28px; }
+.main-header__welcome p { margin: 0; color: #666; font-size: 16px; }
+
+/* --- TARJETAS DE PACIENTES --- */
+.pacientes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.paciente-card {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
+    transition: transform 0.2s ease;
+}
+
+.paciente-card:hover {
+    transform: translateY(-5px);
+}
+
+.paciente-foto {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid #f0fbfb;
+}
+
+.paciente-card h3 {
+    margin: 0 0 15px 0;
+    color: #333;
+    font-size: 18px;
+}
+
+.paciente-info {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    color: #666;
+    font-size: 13px;
+}
+
+.paciente-info i {
+    color: #3bb3b6;
+}
+
+.paciente-expediente {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: left;
+    font-size: 13px;
+}
+
+.paciente-expediente strong {
+    display: block;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.paciente-expediente p {
+    margin: 0;
+    color: #666;
+    font-style: italic;
+}
+
+.empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px;
+    background: white;
+    border-radius: 15px;
+    color: #888;
+    border: 1px dashed #ccc;
+}

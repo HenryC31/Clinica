@@ -7,78 +7,51 @@
     <link rel="stylesheet" href="../styles/agendar.css">
     <link rel="icon" type="image/png" href="../assets/icon.png">
 </head>
-<body>
-    <div id="header-placeholder"></div>
+    <body>
+        <div id="header-placeholder"></div>
+        <main>
+            <div class="agendar-container">
+                <h2>Agendar una cita</h2>
+                <form id="form-agendar">
+                    <div class="form-group">
+                        <label>Servicio / Médico</label>
+                        <select id="agenda-medico" required>
+                            <option value="">Cargando médicos...</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Fecha</label>
+                        <input type="date" id="agenda-fecha" required>
+                    </div>
 
-    <main>
-        <div class="agendar-container">
-            <h2>Agendar una cita</h2>
-            <form id="form-agendar">
-                <div class="form-group">
-                    <label>Servicio / Médico</label>
-                    <select id="agenda-medico" required>
-                        <option value="">Cargando médicos...</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label>Fecha</label>
-                    <input type="date" id="agenda-fecha" required>
-                </div>
+                    <div class="form-group">
+                        <label>Hora</label>
+                        <select id="agenda-hora" required>
+                            <option value="">Selecciona una hora</option>
+                            <option value="08:00">08:00 AM</option>
+                            <option value="09:00">09:00 AM</option>
+                            <option value="10:00">10:00 AM</option>
+                            <option value="11:00">11:00 AM</option>
+                            <option value="12:00">12:00 PM</option>
+                            <option value="13:00">01:00 PM</option>
+                            <option value="14:00">02:00 PM</option>
+                            <option value="15:00">03:00 PM</option>
+                            <option value="16:00">04:00 PM</option>
+                            <option value="17:00">05:00 PM</option>
+                            <option value="18:00">06:00 PM</option>
+                            <option value="19:00">07:00 PM</option>
+                        </select>
+                    </div>
 
-                <div class="form-group">
-                    <label>Hora</label>
-                    <select id="agenda-hora" required>
-                        <option value="">Selecciona una hora</option>
-                        <option value="08:00">08:00 AM</option>
-                        <option value="09:00">09:00 AM</option>
-                        <option value="10:00">10:00 AM</option>
-                        <option value="11:00">11:00 AM</option>
-                        <option value="12:00">12:00 PM</option>
-                        <option value="13:00">01:00 PM</option>
-                        <option value="14:00">02:00 PM</option>
-                        <option value="15:00">03:00 PM</option>
-                        <option value="16:00">04:00 PM</option>
-                        <option value="17:00">05:00 PM</option>
-                        <option value="18:00">06:00 PM</option>
-                        <option value="19:00">07:00 PM</option>
-                    </select>
-                </div>
+                    <button type="button" onclick="agendarCita()">Agendar Cita</button>
+                </form>
+            </div>
+        </main>
 
-                <button type="button" onclick="agendarCita()">Agendar Cita</button>
-            </form>
-        </div>
-    </main>
-
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="../js/main.js"></script>
-   <script>  
-    document.addEventListener('DOMContentLoaded', async () => {  
-        // 1. EL CADENERO: Checamos sesión con SweetAlert2
-        const { data: sessionData } = await db.auth.getSession();
-        
-        if (!sessionData.session) {
-            Swal.fire({
-                icon: 'info',
-                title: 'Sesión requerida',
-                text: 'Para agendar una cita, primero necesitas iniciar sesión.',
-                confirmButtonColor: '#3bb3b6'
-            }).then(() => {
-                window.location.href = "login.html"; // Regresa al login
-            });
-            return; // Detiene la carga de médicos si no hay sesión
-        }
-
-        // 2. Si hay sesión, cargamos los médicos
-        const select = document.getElementById('agenda-medico');  
-        if(!select) return;  
-        const { data } = await db.from('medicos').select('*');  
-        if(data) {  
-            select.innerHTML = '<option value="">Selecciona un médico</option>' +   
-                data.map(m => `<option value="${m.id}">Dr. ${m.nombre} - ${m.especialidad}</option>`).join('');  
-        }  
-    });  
-</script>
-</body>
+        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="../js/supabase-config.js"></script> <script src="../js/main.js"></script>
+        <script src="../js/agendar.js"></script>
+    </body>
 </html>
